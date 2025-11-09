@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Administrador",
       "email": "admin@citas.com",
       "password": "admin123",
@@ -10,18 +10,45 @@
       "createdAt": "2025-11-01T10:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cliente Demo",
       "email": "cliente@demo.com",
       "password": "cliente123",
       "role": "client",
       "phone": "3009876543",
       "createdAt": "2025-11-02T10:00:00.000Z"
+    },
+    {
+      "id": "fc3c",
+      "name": "isabela Garcia",
+      "email": "escuisagar@gmail.com",
+      "password": "123456",
+      "phone": "3107343607",
+      "role": "client",
+      "createdAt": "2025-11-09T17:54:36.726Z"
+    },
+    {
+      "id": "9f21",
+      "name": "Paola Escudero ",
+      "email": "escuderorodriguez@gmail.com",
+      "password": "123456",
+      "phone": "3002001125",
+      "role": "client",
+      "createdAt": "2025-11-09T17:58:59.849Z"
+    },
+    {
+      "id": "ce86",
+      "name": "Camilo Ramos",
+      "email": "cami@gmail.com",
+      "password": "123456",
+      "phone": "3045420897",
+      "role": "client",
+      "createdAt": "2025-11-09T18:49:24.304Z"
     }
   ],
   "appointments": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "userName": "Cliente Demo",
       "date": "2025-11-15",
@@ -31,74 +58,203 @@
       "status": "confirmed",
       "notes": "Primera cita de ejemplo",
       "createdAt": "2025-11-08T09:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "userName": "Cliente Demo",
+      "date": "2025-11-20",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "service": "Consulta Especializada",
+      "status": "cancelled",
+      "notes": "Segunda cita",
+      "createdAt": "2025-11-09T10:00:00.000Z"
+    },
+    {
+      "id": "faba",
+      "userId": "2",
+      "userName": "Cliente Demo",
+      "date": "2025-11-16",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Seguimiento",
+      "status": "completed",
+      "notes": "",
+      "createdAt": "2025-11-09T17:34:13.269Z"
+    },
+    {
+      "id": "5a2d",
+      "userId": "2",
+      "userName": "Cliente Demo",
+      "date": "2025-11-15",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "service": "Seguimiento",
+      "status": "pending",
+      "notes": "",
+      "createdAt": "2025-11-09T17:39:23.562Z"
+    },
+    {
+      "id": "5d56",
+      "userId": "2",
+      "userName": "Cliente Demo",
+      "date": "2025-11-16",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "service": "Consulta Especializada",
+      "status": "cancelled",
+      "notes": "",
+      "createdAt": "2025-11-09T17:46:49.653Z"
+    },
+    {
+      "id": "c147",
+      "userId": "fc3c",
+      "userName": "isabela Garcia",
+      "date": "2025-11-16",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Consulta Especializada",
+      "status": "cancelled",
+      "notes": "",
+      "createdAt": "2025-11-09T17:55:17.013Z"
+    },
+    {
+      "id": "d4a2",
+      "userId": "fc3c",
+      "userName": "isabela Garcia",
+      "date": "2025-11-15",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "service": "Seguimiento",
+      "status": "confirmed",
+      "notes": "",
+      "createdAt": "2025-11-09T17:56:13.750Z"
+    },
+    {
+      "id": "d98e",
+      "userId": "9f21",
+      "userName": "Paola Escudero ",
+      "date": "2025-11-18",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "service": "Consulta General",
+      "status": "pending",
+      "notes": "urgente una consulta general ",
+      "createdAt": "2025-11-09T17:59:26.157Z"
+    },
+    {
+      "id": "a11e",
+      "userId": "ce86",
+      "userName": "Camilo Ramos",
+      "date": "2025-11-18",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Consulta Especializada",
+      "status": "cancelled",
+      "notes": "consulta urgente ",
+      "createdAt": "2025-11-09T18:50:25.428Z"
+    },
+    {
+      "id": "b615",
+      "userId": "ce86",
+      "userName": "Camilo Ramos",
+      "date": "2025-11-15",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Seguimiento",
+      "status": "confirmed",
+      "notes": "",
+      "createdAt": "2025-11-09T18:59:25.479Z"
     }
   ],
   "availableSlots": [
     {
-      "id": 1,
+      "id": "1",
       "date": "2025-11-15",
       "startTime": "09:00",
       "endTime": "10:00",
-      "isAvailable": true
+      "isAvailable": false
     },
     {
-      "id": 2,
+      "id": "2",
       "date": "2025-11-15",
       "startTime": "10:00",
       "endTime": "11:00",
       "isAvailable": false
     },
     {
-      "id": 3,
+      "id": "3",
       "date": "2025-11-15",
       "startTime": "11:00",
       "endTime": "12:00",
       "isAvailable": true
     },
     {
-      "id": 4,
+      "id": "4",
       "date": "2025-11-15",
       "startTime": "14:00",
       "endTime": "15:00",
       "isAvailable": true
     },
     {
-      "id": 5,
+      "id": "5",
       "date": "2025-11-15",
       "startTime": "15:00",
       "endTime": "16:00",
-      "isAvailable": true
+      "isAvailable": false
     },
     {
-      "id": 6,
+      "id": "6",
       "date": "2025-11-16",
       "startTime": "09:00",
       "endTime": "10:00",
       "isAvailable": true
     },
     {
-      "id": 7,
+      "id": "7",
       "date": "2025-11-16",
       "startTime": "10:00",
       "endTime": "11:00",
       "isAvailable": true
+    },
+    {
+      "id": "8",
+      "date": "2025-11-16",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "isAvailable": true
+    },
+    {
+      "id": "9",
+      "date": "2025-11-18",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "isAvailable": true
+    },
+    {
+      "id": "10",
+      "date": "2025-11-18",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "isAvailable": false
     }
   ],
   "services": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Consulta General",
       "duration": 60,
       "description": "Consulta médica general"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Consulta Especializada",
       "duration": 90,
       "description": "Consulta con especialista"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Seguimiento",
       "duration": 30,
       "description": "Cita de seguimiento"

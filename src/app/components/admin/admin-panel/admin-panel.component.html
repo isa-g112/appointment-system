@@ -1,1 +1,140 @@
-<p>admin-panel works!</p>
+<div class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <nav class="bg-indigo-700 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="h-10 w-10 bg-white rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <span class="ml-3 text-xl font-bold text-white">Panel de Administración</span>
+        </div>
+
+        <div class="flex items-center">
+          <button
+            (click)="logout()"
+            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-150">
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Welcome Section -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">Bienvenido, Administrador</h1>
+      <p class="text-gray-600 mt-2">Gestiona las citas y usuarios del sistema</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <!-- Total Appointments -->
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-600 text-sm mb-1">Total Citas</p>
+            <p class="text-3xl font-bold text-gray-900">{{ totalAppointments }}</p>
+          </div>
+          <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Clients -->
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-600 text-sm mb-1">Total Clientes</p>
+            <p class="text-3xl font-bold text-gray-900">{{ totalClients }}</p>
+          </div>
+          <div class="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today Appointments -->
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-600 text-sm mb-1">Citas Hoy</p>
+            <p class="text-3xl font-bold text-gray-900">{{ todayAppointments }}</p>
+          </div>
+          <div class="h-12 w-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Appointments -->
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-gray-600 text-sm mb-1">Pendientes</p>
+            <p class="text-3xl font-bold text-gray-900">{{ pendingAppointments }}</p>
+          </div>
+          <div class="h-12 w-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <svg class="h-6 w-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Gestionar Citas -->
+      <div
+        routerLink="/admin/appointments"
+        class="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-indigo-500">
+        <div class="h-16 w-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+          <svg class="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 text-center mb-2">Gestionar Citas</h3>
+        <p class="text-gray-600 text-center text-sm">Ver, editar y eliminar citas</p>
+      </div>
+
+      <!-- Gestionar Horarios -->
+      <div
+        routerLink="/admin/slots"
+        class="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-green-500">
+        <div class="h-16 w-16 bg-green-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+          <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 text-center mb-2">Gestionar Horarios</h3>
+        <p class="text-gray-600 text-center text-sm">Configurar disponibilidad</p>
+      </div>
+
+      <!-- Ver Calendario -->
+      <div
+        routerLink="/calendar"
+        class="bg-white rounded-lg shadow-md p-8 hover:shadow-xl transition duration-300 cursor-pointer border-2 border-transparent hover:border-purple-500">
+        <div class="h-16 w-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+          <svg class="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 text-center mb-2">Ver Calendario</h3>
+        <p class="text-gray-600 text-center text-sm">Revisar disponibilidad</p>
+      </div>
+    </div>
+  </main>
+</div>
