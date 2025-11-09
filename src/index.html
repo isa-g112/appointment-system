@@ -1,11 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>AppointmentSystem</title>
+  <title>Sistema de Agendamiento de Citas</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#8b5cf6',
+            accent: '#06b6d4',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>

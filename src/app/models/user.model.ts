@@ -1,0 +1,19 @@
+export interface User {
+  id?: number;
+  name: string;
+  email: string;
+  password: string;
+  role: 'admin' | 'client';
+  phone: string;
+  createdAt?: string;
+}
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token?: string;
+}

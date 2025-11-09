@@ -1,0 +1,107 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrador",
+      "email": "admin@citas.com",
+      "password": "admin123",
+      "role": "admin",
+      "phone": "3001234567",
+      "createdAt": "2025-11-01T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Cliente Demo",
+      "email": "cliente@demo.com",
+      "password": "cliente123",
+      "role": "client",
+      "phone": "3009876543",
+      "createdAt": "2025-11-02T10:00:00.000Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "userId": 2,
+      "userName": "Cliente Demo",
+      "date": "2025-11-15",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "service": "Consulta General",
+      "status": "confirmed",
+      "notes": "Primera cita de ejemplo",
+      "createdAt": "2025-11-08T09:00:00.000Z"
+    }
+  ],
+  "availableSlots": [
+    {
+      "id": 1,
+      "date": "2025-11-15",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "isAvailable": true
+    },
+    {
+      "id": 2,
+      "date": "2025-11-15",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "isAvailable": false
+    },
+    {
+      "id": 3,
+      "date": "2025-11-15",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "isAvailable": true
+    },
+    {
+      "id": 4,
+      "date": "2025-11-15",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "isAvailable": true
+    },
+    {
+      "id": 5,
+      "date": "2025-11-15",
+      "startTime": "15:00",
+      "endTime": "16:00",
+      "isAvailable": true
+    },
+    {
+      "id": 6,
+      "date": "2025-11-16",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "isAvailable": true
+    },
+    {
+      "id": 7,
+      "date": "2025-11-16",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "isAvailable": true
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Consulta General",
+      "duration": 60,
+      "description": "Consulta médica general"
+    },
+    {
+      "id": 2,
+      "name": "Consulta Especializada",
+      "duration": 90,
+      "description": "Consulta con especialista"
+    },
+    {
+      "id": 3,
+      "name": "Seguimiento",
+      "duration": 30,
+      "description": "Cita de seguimiento"
+    }
+  ]
+}
