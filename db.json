@@ -44,6 +44,24 @@
       "phone": "3045420897",
       "role": "client",
       "createdAt": "2025-11-09T18:49:24.304Z"
+    },
+    {
+      "id": "9f98",
+      "name": "Teresa Garcia ",
+      "email": "TEre@gmail.com",
+      "password": "123456",
+      "phone": "3045420897",
+      "role": "client",
+      "createdAt": "2025-11-10T19:48:00.003Z"
+    },
+    {
+      "id": "65a3",
+      "name": "Luis Alfredo Garcia ",
+      "email": "luisA@gmail.com",
+      "password": "123456",
+      "phone": "3045420897",
+      "role": "client",
+      "createdAt": "2025-11-11T01:08:35.439Z"
     }
   ],
   "appointments": [
@@ -166,6 +184,30 @@
       "status": "confirmed",
       "notes": "",
       "createdAt": "2025-11-09T18:59:25.479Z"
+    },
+    {
+      "id": "b926",
+      "userId": "9f98",
+      "userName": "Teresa Garcia ",
+      "date": "2025-11-18",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Seguimiento",
+      "status": "cancelled",
+      "notes": "",
+      "createdAt": "2025-11-10T19:48:51.173Z"
+    },
+    {
+      "id": "f638",
+      "userId": "65a3",
+      "userName": "Luis Alfredo Garcia ",
+      "date": "2025-11-18",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "service": "Consulta Especializada",
+      "status": "cancelled",
+      "notes": "urgente la cita ",
+      "createdAt": "2025-11-11T01:11:18.537Z"
     }
   ],
   "availableSlots": [
@@ -174,14 +216,14 @@
       "date": "2025-11-15",
       "startTime": "09:00",
       "endTime": "10:00",
-      "isAvailable": false
+      "isAvailable": true
     },
     {
       "id": "2",
       "date": "2025-11-15",
       "startTime": "10:00",
       "endTime": "11:00",
-      "isAvailable": false
+      "isAvailable": true
     },
     {
       "id": "3",

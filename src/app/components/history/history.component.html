@@ -1,29 +1,29 @@
-<div class="min-h-screen bg-gray-50">
+<div class="min-h-screen gradient-bg-light">
   <!-- Header -->
-  <nav class="bg-white shadow-lg">
+  <nav class="gradient-bg shadow-pink">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex items-center">
           <button
             (click)="goBack()"
-            class="mr-4 text-gray-600 hover:text-gray-900">
+            class="mr-3 sm:mr-4 text-white hover:text-white/80 transition">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
           </button>
-          <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center">
+          <div class="h-10 w-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
             <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <span class="ml-3 text-xl font-bold text-gray-900">Historial de Citas</span>
+          <span class="ml-3 text-lg sm:text-xl font-bold text-white">Historial de Citas</span>
         </div>
 
         <div class="flex items-center">
           <button
             (click)="logout()"
-            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-150">
-            Cerrar Sesión
+            class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-3 sm:px-4 py-2 rounded-lg transition duration-150 text-sm sm:text-base">
+            Salir
           </button>
         </div>
       </div>
@@ -31,24 +31,34 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
     <!-- Tabs -->
-    <div class="bg-white rounded-lg shadow-md mb-6">
-      <div class="border-b border-gray-200">
+    <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg mb-6 overflow-hidden">
+      <div class="border-b border-primary-100">
         <nav class="flex -mb-px">
           <button
             (click)="activeTab = 'upcoming'"
             [class]="activeTab === 'upcoming'
-              ? 'border-indigo-500 text-indigo-600 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm'
-              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm'">
-            Próximas Citas ({{ upcomingAppointments.length }})
+              ? 'border-primary-500 text-primary-600 w-1/2 py-4 px-1 text-center border-b-2 font-bold text-sm sm:text-base bg-primary-50'
+              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm sm:text-base'">
+            <span class="flex items-center justify-center">
+              <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Próximas ({{ upcomingAppointments.length }})
+            </span>
           </button>
           <button
             (click)="activeTab = 'past'"
             [class]="activeTab === 'past'
-              ? 'border-indigo-500 text-indigo-600 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm'
-              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm'">
-            Citas Pasadas ({{ pastAppointments.length }})
+              ? 'border-secondary-500 text-secondary-600 w-1/2 py-4 px-1 text-center border-b-2 font-bold text-sm sm:text-base bg-secondary-50'
+              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 py-4 px-1 text-center border-b-2 font-medium text-sm sm:text-base'">
+            <span class="flex items-center justify-center">
+              <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Pasadas ({{ pastAppointments.length }})
+            </span>
           </button>
         </nav>
       </div>
@@ -56,7 +66,7 @@
 
     <!-- Loading State -->
     <div *ngIf="isLoading" class="text-center py-12">
-      <svg class="animate-spin h-12 w-12 text-indigo-600 mx-auto" fill="none" viewBox="0 0 24 24">
+      <svg class="animate-spin h-12 w-12 text-primary-600 mx-auto" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg>
@@ -65,56 +75,56 @@
 
     <!-- Upcoming Appointments -->
     <div *ngIf="!isLoading && activeTab === 'upcoming'">
-      <div *ngIf="upcomingAppointments.length === 0" class="text-center py-12 bg-white rounded-lg shadow-md">
-        <svg class="h-24 w-24 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div *ngIf="upcomingAppointments.length === 0" class="text-center py-12 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
+        <svg class="h-20 w-20 sm:h-24 sm:w-24 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
         </svg>
         <h3 class="text-lg font-semibold text-gray-900 mb-2">No tienes citas próximas</h3>
         <p class="text-gray-600 mb-4">Agenda una nueva cita</p>
         <button
           routerLink="/calendar"
-          class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg transition duration-150">
+          class="gradient-bg text-white px-6 py-3 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
           Agendar Cita
         </button>
       </div>
 
       <div *ngIf="upcomingAppointments.length > 0" class="space-y-4">
         <div *ngFor="let appointment of upcomingAppointments"
-             class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-          <div class="flex justify-between items-start">
+             class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 sm:p-6 hover-lift border-2 border-primary-100 hover:border-primary-300">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-4">
             <div class="flex-1">
-              <div class="flex items-center space-x-3 mb-3">
-                <h3 class="text-xl font-bold text-gray-900">{{ appointment.service }}</h3>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900">{{ appointment.service }}</h3>
                 <span [ngClass]="getStatusClass(appointment.status)"
                       class="px-3 py-1 rounded-full text-xs font-semibold">
                   {{ getStatusText(appointment.status) }}
                 </span>
               </div>
-              <div class="space-y-2 text-gray-600">
+              <div class="space-y-2 text-sm sm:text-base text-gray-600">
                 <p class="flex items-center">
-                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                   <strong class="mr-2">Fecha:</strong> {{ appointment.date | date:'EEEE, d MMMM yyyy':'':'es' }}
                 </p>
                 <p class="flex items-center">
-                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   <strong class="mr-2">Hora:</strong> {{ appointment.startTime }} - {{ appointment.endTime }}
                 </p>
                 <p *ngIf="appointment.notes" class="flex items-start">
-                  <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 mt-0.5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
                   <span><strong class="mr-2">Notas:</strong> {{ appointment.notes }}</span>
                 </p>
               </div>
             </div>
-            <div class="ml-4" *ngIf="appointment.status !== 'cancelled' && appointment.status !== 'completed'">
+            <div *ngIf="appointment.status !== 'cancelled' && appointment.status !== 'completed'">
               <button
                 (click)="cancelAppointment(appointment)"
-                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-150">
+                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 transform hover:scale-105">
                 Cancelar
               </button>
             </div>
@@ -125,8 +135,8 @@
 
     <!-- Past Appointments -->
     <div *ngIf="!isLoading && activeTab === 'past'">
-      <div *ngIf="pastAppointments.length === 0" class="text-center py-12 bg-white rounded-lg shadow-md">
-        <svg class="h-24 w-24 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div *ngIf="pastAppointments.length === 0" class="text-center py-12 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
+        <svg class="h-20 w-20 sm:h-24 sm:w-24 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <h3 class="text-lg font-semibold text-gray-900 mb-2">No hay citas pasadas</h3>
@@ -135,31 +145,31 @@
 
       <div *ngIf="pastAppointments.length > 0" class="space-y-4">
         <div *ngFor="let appointment of pastAppointments"
-             class="bg-white rounded-lg shadow-md p-6 opacity-75">
-          <div class="flex justify-between items-start">
+             class="bg-white/60 backdrop-blur-sm rounded-2xl shadow-md p-4 sm:p-6 border-2 border-gray-200">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-4">
             <div class="flex-1">
-              <div class="flex items-center space-x-3 mb-3">
-                <h3 class="text-xl font-bold text-gray-900">{{ appointment.service }}</h3>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <h3 class="text-lg sm:text-xl font-bold text-gray-900">{{ appointment.service }}</h3>
                 <span [ngClass]="getStatusClass(appointment.status)"
                       class="px-3 py-1 rounded-full text-xs font-semibold">
                   {{ getStatusText(appointment.status) }}
                 </span>
               </div>
-              <div class="space-y-2 text-gray-600">
+              <div class="space-y-2 text-sm sm:text-base text-gray-600">
                 <p class="flex items-center">
-                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                   <strong class="mr-2">Fecha:</strong> {{ appointment.date | date:'EEEE, d MMMM yyyy':'':'es' }}
                 </p>
                 <p class="flex items-center">
-                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   <strong class="mr-2">Hora:</strong> {{ appointment.startTime }} - {{ appointment.endTime }}
                 </p>
                 <p *ngIf="appointment.notes" class="flex items-start">
-                  <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5 mr-2 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
                   <span><strong class="mr-2">Notas:</strong> {{ appointment.notes }}</span>
